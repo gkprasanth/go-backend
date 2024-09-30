@@ -1,14 +1,13 @@
 package database
 
 import (
+	"backend/config"
+	"backend/models"
 	"fmt"
 	"log"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-
-	"github.com/gkprasanth/go-backend/config"
-	"github.com/gkprasanth/go-backend/models"
 )
 
 var DB *gorm.DB
@@ -30,7 +29,7 @@ func InitDB() {
 
 	fmt.Println("Connected to the database!")
 
-	// Auto-migrate the User model
+	 
 	err = DB.AutoMigrate(&models.User{})
 	if err != nil {
 		log.Fatalf("Failed to auto-migrate User model: %v", err)
