@@ -10,7 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var DB *gorm.DB
+var db *gorm.DB
 
 func InitDB() {
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
@@ -22,7 +22,7 @@ func InitDB() {
 	)
 
 	var err error
-	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Failed to connect to the database: %v", err)
 	}
@@ -30,7 +30,7 @@ func InitDB() {
 	fmt.Println("Connected to the database!")
 
 	 
-	err = DB.AutoMigrate(&models.User{})
+	err = db.AutoMigrate(&models.User{})
 	if err != nil {
 		log.Fatalf("Failed to auto-migrate User model: %v", err)
 	}

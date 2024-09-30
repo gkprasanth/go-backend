@@ -5,7 +5,6 @@ import (
 	"backend/database"
 	"fmt"
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 

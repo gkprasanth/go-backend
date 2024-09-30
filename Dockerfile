@@ -9,7 +9,6 @@ COPY go.mod go.sum ./
 
 # Download Go module dependencies
 RUN go mod download
-
 RUN go mod tidy
 
 # Copy the rest of the application code
