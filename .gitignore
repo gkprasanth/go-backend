@@ -1,0 +1,37 @@
+# Go modules
+/go.sum
+# /go.mod
+
+# Build artifacts
+/bin
+/*.exe
+/*.test
+/*.out
+
+# Dependency directories
+/vendor/
+# GoLand specific files
+.idea/
+# VSCode specific files
+.vscode/
+
+# Environment variable files
+.env
+
+# MacOS specific files
+.DS_Store
+
+# Logs
+*.log
+
+# Coverage files
+*.cov
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# IDE specific files
+*.swp
+*.swo
