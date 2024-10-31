@@ -1,15 +1,25 @@
- package controllers
+package controllers
 
-// import (
-// 	"backend/models"
-// 	"net/http"
-// 	"os"
+import (
+	"backend/database"
+	"backend/models"
+	"net/http"
 
-// 	"github.com/gin-gonic/gin"
-	 
-// )
+	"github.com/gin-gonic/gin"
+)
 
- 
+func SearchUsers(c *gin.Context) {
+    query := c.Query("q")
+    var users []models.User
+
+    db := database.GetDB()
+    if err := db.Where("username LIKE ?", "%"+query+"%").Find(&users).Error; err != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch users"})
+        return
+    }
+
+    c.JSON(http.StatusOK, gin.H{"users": users})
+}
 
 
 // func Register(c *gin.Context){

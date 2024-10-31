@@ -30,6 +30,7 @@ func main() {
 
 	router.POST("/register", controllers.Register)
 	router.GET("/users", controllers.GetUsers)
+	router.GET("/search", controllers.SearchUsers)
 
 	router.Run()
 }
